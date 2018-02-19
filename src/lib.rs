@@ -1,8 +1,8 @@
+#![no_std]
+
 pub mod basic_info;
 pub mod memory_map;
 pub mod tag;
-
-extern crate core;
 
 use core::fmt;
 
