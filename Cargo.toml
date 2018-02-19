@@ -3,7 +3,4 @@ name = "multiboot2"
 version = "0.1.0"
 authors = ["Adam Gleave <adamg108@hotmail.co.uk>"]
 
-[lib]
-crate-type = ["staticlib"]
-
 [dependencies]

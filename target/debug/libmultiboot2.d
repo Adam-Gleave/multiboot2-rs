@@ -1,1 +1,0 @@
-/home/adam/rustbucket/multiboot2/target/debug/libmultiboot2.a: /home/adam/rustbucket/multiboot2/src/tag.rs /home/adam/rustbucket/multiboot2/src/lib.rs /home/adam/rustbucket/multiboot2/src/memory_map.rs /home/adam/rustbucket/multiboot2/src/basic_info.rs
