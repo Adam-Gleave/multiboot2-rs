@@ -108,11 +108,11 @@ impl Iterator for ElfSectionsIterator {
 }
 
 impl ElfSectionsTag {
-	fn first_section(&self) -> *const u8 {
+	pub fn first_section(&self) -> *const u8 {
 		(unsafe { self.ptr.offset(1) }) as *const _
 	}
 
-	fn get_sections(&self) -> ElfSectionsIterator {
+	pub fn get_sections(&self) -> ElfSectionsIterator {
         let string_table_offset = (self.get().shndx * self.get().entry_size) as isize;
 
         let string_table_ptr = unsafe {
