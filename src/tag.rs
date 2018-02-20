@@ -4,6 +4,7 @@
 pub enum TagType {
 	BasicMemoryInfo = 4,
 	MemoryMap = 6,
+	ElfSections = 9,
 }
 
 #[repr(C, packed)]

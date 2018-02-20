@@ -1,13 +1,18 @@
 #![no_std]
 
+pub mod elf_sections;
 pub mod basic_info;
 pub mod memory_map;
 pub mod tag;
+
+#[macro_use]
+extern crate bitflags;
 
 use core::fmt;
 
 use self::basic_info::BasicMemoryInfoTag;
 use self::memory_map::MemoryMapTag;
+use self::elf_sections::ElfSectionsTag;
 use self::tag::{ TagType, Tag, TagIterator };
 
 //public structs and functions for reading multiboot2 information
@@ -46,6 +51,10 @@ impl Multiboot2Info {
 	pub fn get_mem_map(&self) -> Option<&'static MemoryMapTag> {
 		self.get_tag(TagType::MemoryMap as u32)
 			.map(|tag| unsafe { &*(tag as *const Tag as *const MemoryMapTag) })
+	}
+
+    pub fn get_elf_sections(&self) -> Option<ElfSectionsTag> {
+        self.get_tag(9).map(|tag| elf_sections::get_elf_sections_tag(tag))
 	}
 
 	fn get_header(&self) -> &Multiboot2Fixed {
